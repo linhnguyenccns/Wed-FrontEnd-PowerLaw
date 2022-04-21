@@ -4,6 +4,7 @@ import '../../css/page-add.css'
 
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {apiUrl} from '../../contexts/constants';
 
 function EditAbout() {
 
@@ -35,7 +36,7 @@ function EditAbout() {
           redirect: 'follow'
         };
 
-        return fetch(`http://localhost:5000/login`, requestOptions)
+        return fetch(apiUrl+`/login`, requestOptions)
           .then(response => response.json())
           .then(data => {
             if (data.success) {
@@ -59,7 +60,7 @@ function EditAbout() {
     };
 
     const id = window.location.href.split('/')
-    fetch("http://localhost:5000/about/" + id[4], requestOptions)
+    fetch(apiUrl+"/about/" + id[4], requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {
@@ -99,7 +100,7 @@ function EditAbout() {
     };
 
     const id = window.location.href.split('/')
-    fetch("http://localhost:5000/about/" + id[4], requestOptions)
+    fetch(apiUrl+"/about/" + id[4], requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {

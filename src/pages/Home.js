@@ -4,6 +4,7 @@ import ImgHome from '../img/img_home.jpg'
 import { Accordion, Carousel } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom"
 import parse from 'html-react-parser'
+import {apiUrl} from '../contexts/constants';
 
 // import facebook from '../img/facebook-app-symbol.png'
 
@@ -45,7 +46,7 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:5000/infor", requestOptions)
+        fetch(apiUrl+"/infor", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
@@ -63,7 +64,7 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:5000/service", requestOptions)
+        fetch(apiUrl+"/service", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
@@ -79,7 +80,7 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:5000/about", requestOptions)
+        fetch(apiUrl+"/about", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
@@ -95,7 +96,7 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:5000/blog", requestOptions)
+        fetch(apiUrl+"/blog", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
@@ -112,7 +113,7 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:5000/question", requestOptions)
+        fetch(apiUrl+"/question", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
@@ -128,7 +129,7 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:5000/nof", requestOptions)
+        fetch(apiUrl+"/nof", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {

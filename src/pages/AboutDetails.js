@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../css/About.css'
 import parse from 'html-react-parser'
+import {apiUrl} from '../contexts/constants';
 
 function AboutDetails() {
   const [Loading, setLoading] = useState(false)
@@ -20,7 +21,7 @@ function AboutDetails() {
     };
 
     const id = window.location.href.split('/')
-    fetch("http://localhost:5000/about/" + id[4], requestOptions)
+    fetch(apiUrl+"/about/" + id[4], requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {
@@ -40,7 +41,7 @@ function AboutDetails() {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:5000/infor", requestOptions)
+    fetch(apiUrl+"/infor", requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {

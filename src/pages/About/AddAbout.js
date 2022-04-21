@@ -4,6 +4,7 @@ import '../../css/page-add.css'
 
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import {apiUrl} from '../../contexts/constants';
 
 function AddAbout() {
     let navigate = useNavigate();
@@ -34,7 +35,7 @@ function AddAbout() {
                     redirect: 'follow'
                 };
 
-                return fetch(`http://localhost:5000/login`, requestOptions)
+                return fetch(apiUrl+`/login`, requestOptions)
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
@@ -75,7 +76,7 @@ function AddAbout() {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:5000/about", requestOptions)
+        fetch(apiUrl+"/about", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {

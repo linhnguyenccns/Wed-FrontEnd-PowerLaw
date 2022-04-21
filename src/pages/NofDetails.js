@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../css/Nof.css'
+import {apiUrl} from '../contexts/constants';
 
 import parse from 'html-react-parser'
 
@@ -20,7 +21,7 @@ function NofDetails() {
     };
 
     const id = window.location.href.split('/')
-    fetch("http://localhost:5000/nof/" + id[4], requestOptions)
+    fetch(apiUrl+"/nof/" + id[4], requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {
@@ -39,7 +40,7 @@ function NofDetails() {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:5000/infor", requestOptions)
+    fetch(apiUrl+"/infor", requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {

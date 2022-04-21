@@ -1,7 +1,7 @@
 import '../css/login.css'
 import { React, useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
-
+import {apiUrl} from '../contexts/constants';
 
 const Login = () => {
     let navigate = useNavigate();
@@ -29,7 +29,7 @@ const Login = () => {
                     redirect: 'follow'
                 };
 
-                return fetch(`http://localhost:5000/login`, requestOptions)
+                return fetch(apiUrl+`/login`, requestOptions)
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
@@ -63,7 +63,7 @@ const Login = () => {
             redirect: 'follow'
         };
 
-        fetch(`http://localhost:5000/login`, requestOptions)
+        fetch(apiUrl+`/login`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 if (data.success) {

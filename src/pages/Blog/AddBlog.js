@@ -5,6 +5,8 @@ import '../../css/page-add.css'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
+import {apiUrl} from '../../contexts/constants';
+
 function AddBlog() {
   let navigate = useNavigate();
   const [Loading, setLoading] = useState(false)
@@ -34,7 +36,7 @@ function AddBlog() {
           redirect: 'follow'
         };
 
-        return fetch(`http://localhost:5000/login`, requestOptions)
+        return fetch(apiUrl+`/login`, requestOptions)
           .then(response => response.json())
           .then(data => {
             if (data.success) {
@@ -75,7 +77,7 @@ function AddBlog() {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:5000/blog", requestOptions)
+    fetch(apiUrl+"/blog", requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import '../css/page-add.css'
+import {apiUrl} from '../contexts/constants';
 
 function EditInfor() {
   let navigate = useNavigate();
@@ -38,7 +39,7 @@ function EditInfor() {
           redirect: 'follow'
         };
 
-        return fetch(`http://localhost:5000/login`, requestOptions)
+        return fetch(apiUrl+`/login`, requestOptions)
           .then(response => response.json())
           .then(data => {
             if (data.success) {
@@ -61,7 +62,7 @@ function EditInfor() {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:5000/infor", requestOptions)
+    fetch(apiUrl+"/infor", requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {
@@ -164,7 +165,7 @@ function EditInfor() {
       redirect: 'follow'
     };
 
-    fetch("http://localhost:5000/infor", requestOptions)
+    fetch(apiUrl+"/infor", requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {

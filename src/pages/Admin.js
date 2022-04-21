@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import '../css/admin.css'
 import { Table } from 'react-bootstrap';
 import parse from 'html-react-parser'
+import {apiUrl} from '../contexts/constants';
 
 function Admin() {
     let navigate = useNavigate();
@@ -31,7 +32,7 @@ function Admin() {
                     redirect: 'follow'
                 };
 
-                return fetch(`http://localhost:5000/login`, requestOptions)
+                return fetch(apiUrl+`/login`, requestOptions)
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
@@ -55,7 +56,7 @@ function Admin() {
             redirect: 'follow'
         };
 
-        fetch("http://localhost:5000/infor", requestOptions)
+        fetch(apiUrl+"/infor", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
@@ -73,7 +74,7 @@ function Admin() {
             redirect: 'follow'
         };
 
-        fetch(`http://localhost:5000/${Tag}`, requestOptions)
+        fetch(`${apiUrl}/${Tag}`, requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
@@ -120,7 +121,7 @@ function Admin() {
                 redirect: 'follow'
             };
 
-            fetch("http://localhost:5000/service/" + data._id, requestOptions)
+            fetch(apiUrl+"/service/" + data._id, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.success) {
@@ -141,7 +142,7 @@ function Admin() {
                 redirect: 'follow'
             };
 
-            fetch("http://localhost:5000/about/" + data._id, requestOptions)
+            fetch(apiUrl+"/about/" + data._id, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.success) {
@@ -162,7 +163,7 @@ function Admin() {
                 redirect: 'follow'
             };
 
-            fetch("http://localhost:5000/question/" + data._id, requestOptions)
+            fetch(apiUrl+"/question/" + data._id, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.success) {
@@ -183,7 +184,7 @@ function Admin() {
                 redirect: 'follow'
             };
 
-            fetch("http://localhost:5000/blog/" + data._id, requestOptions)
+            fetch(apiUrl+"/blog/" + data._id, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.success) {
@@ -204,7 +205,7 @@ function Admin() {
                 redirect: 'follow'
             };
 
-            fetch("http://localhost:5000/nof/" + data._id, requestOptions)
+            fetch(apiUrl+"nof/" + data._id, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.success) {

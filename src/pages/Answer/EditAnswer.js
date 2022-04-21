@@ -5,6 +5,8 @@ import '../../css/page-add.css'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
+import {apiUrl} from '../../contexts/constants';
+
 function EditAnswer() {
 
   let navigate = useNavigate();
@@ -32,7 +34,7 @@ function EditAnswer() {
           redirect: 'follow'
         };
 
-        return fetch(`http://localhost:5000/login`, requestOptions)
+        return fetch(apiUrl+`/login`, requestOptions)
           .then(response => response.json())
           .then(data => {
             if (data.success) {
@@ -56,7 +58,7 @@ function EditAnswer() {
     };
 
     const id = window.location.href.split('/')
-    fetch("http://localhost:5000/question/" + id[4], requestOptions)
+    fetch(apiUrl+"/question/" + id[4], requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {
@@ -83,7 +85,7 @@ function EditAnswer() {
     };
 
     const id = window.location.href.split('/')
-    fetch("http://localhost:5000/question/"+id[4], requestOptions)
+    fetch(apiUrl+"/question/"+id[4], requestOptions)
       .then(response => response.json())
       .then(result => {
         if (result.success) {
