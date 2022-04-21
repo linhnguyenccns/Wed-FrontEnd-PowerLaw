@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
-import logo from '../img/logo.png';
 import '../css/admin.css'
 import { Table } from 'react-bootstrap';
 import parse from 'html-react-parser'
@@ -11,6 +10,7 @@ function Admin() {
     const [Tag, setTag] = useState('infor')
     const [dataTable, setdataTable] = useState([])
     const [ChangeTable, setChangeTable] = useState(true)
+    const [infor, setinfor] = useState([])
 
     useEffect(() => {
         const checklogin = () => {
@@ -47,6 +47,24 @@ function Admin() {
         }
         checklogin()
     }, [navigate])
+
+    //Infor
+    useEffect(() => {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:5000/infor", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    setinfor(result.data)
+                    setLoading(true)
+                }
+            })
+            .catch(error => console.log('error', error));
+    }, [])
 
     useEffect(() => {
         setLoading(false)
@@ -484,9 +502,9 @@ function Admin() {
         body = (
             <>
                 <div className='Home-header'>
-                    <div className='Home-header__container'>
+                <div className='Home-header__container'>
                         <div className='Home-header__logo'>
-                            <img className='Home-header__logo__img' src={logo} alt=''></img>
+                            <img className='Home-header__logo__img' src={`https://drive.google.com/uc?export=view&id=${infor[0].Logo}`} alt=''></img>
                         </div>
                         <div className='Home-header__right'>
                             <button className='Admin-btn-logout' onClick={logout}>LogOut</button>
