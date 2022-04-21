@@ -1,0 +1,33 @@
+.add-page {
+    padding: 50px 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-add-page {
+    margin-top: 20px;
+    padding: 10px 10px;
+    background-color: #4680ff;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.add-page-input {
+    margin-bottom: 20px;
+}
+
+.add-page-title {
+    color: #FFBB00;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.motangan {
+    width: 1000px;
+}

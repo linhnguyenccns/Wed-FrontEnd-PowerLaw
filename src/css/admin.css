@@ -1,0 +1,76 @@
+.Admin-btn-logout {
+    background-color: #DF0000;
+    margin-right: 20px;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.Admin-btn-del {
+    padding: 10px 10px;
+    background-color: #DF0000;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.Admin-btn-edit {
+    margin-right: 15px;
+    padding: 10px 10px;
+    background-color: #4680ff;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.Admin-btn-add {
+    margin-left: 20px;
+    padding: 10px 10px;
+    background-color: #4680ff;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.Name {
+    overflow: auto;
+    padding: 20px;
+
+}
+
+.Admin-Table {
+    min-width: 1200px;
+}
+
+/*info table*/
+.Admin-table-Logo-img {
+    width: 90px;
+    height: 70px;
+}
+
+.Admin-table-Icon {
+    width: 32p;
+    height: 32px;
+}
+
+.Admin-table-img-about {
+    width: 180px;
+    height: 200px;
+}
+
+.question-admin {
+    width: 1200px;
+}
