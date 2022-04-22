@@ -82,6 +82,22 @@ a {
 
 /* Homee Body */
 /* Body 1 */
+.body1-container {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+.body1-img{
+    width: 100%;
+}
+
+.centered {
+    color: #FFBB00;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
 /* Line */
 .Home-Body__Line {

@@ -18,6 +18,13 @@ import EditNof from './pages/Nof/EditNof';
 import EditAnswer from './pages/Answer/EditAnswer';
 import EditBlog from './pages/Blog/EditBlog'
 import EditAbout from './pages/About/EditAbout'
+import ViewTop from './pages/Top/ViewTop';
+import ViewService from './pages/Service/ViewService';
+import ViewAbout from './pages/About/ViewAbout';
+import ViewEmail from './pages/email/ViewEmail';
+import ViewBlog from './pages/Blog/ViewBlog';
+import ViewAnswer from './pages/Answer/ViewAnswer';
+import ViewNof from './pages/Nof/ViewNof';
 
 function App() {
   
@@ -43,6 +50,14 @@ function App() {
       <Route path="/about-edit/:id" element={<EditAbout/>} />
       <Route path="/question-edit/:id" element={<EditAnswer/>} />
       <Route path="/nof-edit/:id" element={<EditNof/>} />
+
+      <Route path="/view-top" element={<ViewTop/>} />
+      <Route path="/view-service" element={<ViewService/>} />
+      <Route path="/view-about" element={<ViewAbout/>} />
+      <Route path="/view-email" element={<ViewEmail/>} />
+      <Route path="/view-blog" element={<ViewBlog/>} />
+      <Route path="/view-que" element={<ViewAnswer/>} />
+      <Route path="/view-nof" element={<ViewNof/>} />
     </Routes>
   );
 }

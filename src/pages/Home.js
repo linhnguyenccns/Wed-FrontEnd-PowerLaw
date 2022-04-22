@@ -1,24 +1,24 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Home.css'
 import ImgHome from '../img/img_home.jpg'
-import { Accordion, Carousel } from 'react-bootstrap';
+import { Accordion } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom"
 import parse from 'html-react-parser'
-import {apiUrl} from '../contexts/constants';
+import { apiUrl } from '../contexts/constants';
 
 // import facebook from '../img/facebook-app-symbol.png'
 
 import React, { useRef, useState, useEffect } from 'react'
 
 function Home() {
-    const [index, setIndex] = useState(0);
-
-    const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
-    };
     const navigate = useNavigate()
 
     const [Loading, setLoading] = useState(false)
+    const [Loading2, setLoading2] = useState(false)
+    const [Loading3, setLoading3] = useState(false)
+    const [Loading4, setLoading4] = useState(false)
+    const [Loading5, setLoading5] = useState(false)
+    const [Loading6, setLoading6] = useState(false)
 
     let ref = useRef()
     let refs = useRef()
@@ -46,7 +46,7 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch(apiUrl+"/infor", requestOptions)
+        fetch(apiUrl + "/infor", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
@@ -64,11 +64,12 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch(apiUrl+"/service", requestOptions)
+        fetch(apiUrl + "/service", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
                     setservice(result.data)
+                    setLoading2(true)
                 }
             })
             .catch(error => console.log('error', error));
@@ -80,11 +81,12 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch(apiUrl+"/about", requestOptions)
+        fetch(apiUrl + "/about", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
                     setabout(result.data)
+                    setLoading3(true)
                 }
             })
             .catch(error => console.log('error', error));
@@ -96,11 +98,12 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch(apiUrl+"/blog", requestOptions)
+        fetch(apiUrl + "/blog", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
                     setblog(result.data)
+                    setLoading4(true)
                 }
             })
             .catch(error => console.log('error', error));
@@ -113,11 +116,12 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch(apiUrl+"/question", requestOptions)
+        fetch(apiUrl + "/question", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
                     setquestion(result.data)
+                    setLoading5(true)
                 }
             })
             .catch(error => console.log('error', error));
@@ -129,11 +133,12 @@ function Home() {
             redirect: 'follow'
         };
 
-        fetch(apiUrl+"/nof", requestOptions)
+        fetch(apiUrl + "/nof", requestOptions)
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
                     setnof(result.data)
+                    setLoading6(true)
                 }
             })
             .catch(error => console.log('error', error));
@@ -169,7 +174,7 @@ function Home() {
     }
 
     let body
-    if (Loading) {
+    if (Loading && Loading2 && Loading3 && Loading4 && Loading5 && Loading6) {
         //Body 2
         const listService = service.map(data => (
             <div key={data._id} className='Home-Body-card-2'>
@@ -272,45 +277,12 @@ function Home() {
                 {/* Home */}
 
                 {/* Body 1 */}
-                <Carousel activeIndex={index} onSelect={handleSelect}>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={ImgHome}
-                            alt="First slide"
-                        />
-                        <Carousel.Caption>
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={ImgHome}
-                            alt="Second slide"
-                        />
-
-                        <Carousel.Caption>
-                            <h3>Second slide label</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src={ImgHome}
-                            alt="Third slide"
-                        />
-
-                        <Carousel.Caption>
-                            <h3>Third slide label</h3>
-                            <p>
-                                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                            </p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
+                <div class="body1-container">
+                    <img className='body1-img' src={ImgHome} alt='' />
+                    <div class="centered">
+                        
+                    </div>
+                </div>
 
                 {/* Line */}
                 <div className='Home-Body__Line'></div>
