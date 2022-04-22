@@ -124,7 +124,7 @@ function AddAbout() {
         )
     } else {
         Body = (
-            <div>Loading...</div>
+            <div className='loading'>Loading...</div>
         )
     }
 

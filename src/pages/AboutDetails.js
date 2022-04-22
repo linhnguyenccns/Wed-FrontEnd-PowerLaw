@@ -122,6 +122,10 @@ function AboutDetails() {
         </div>
       </>
     )
+  }else {
+    body = (
+      <div className='loading'>Loading...</div>
+    )
   }
   return (body)
 }

@@ -120,6 +120,10 @@ function NofDetails() {
         </div>
       </>
     )
+  }else{
+    body = (
+      <div className='loading'>Loading...</div>
+    )
   }
   return (body)
 }

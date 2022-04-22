@@ -449,7 +449,7 @@ function Home() {
     } else {
         body = (
             <>
-                <div>Loading...</div>
+                <div className='loading'>Loading...</div>
             </>
         )
     }

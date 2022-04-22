@@ -109,7 +109,7 @@ function AddAnswer() {
     )
   } else {
     Body = (
-      <div>Loading...</div>
+      <div className='loading'>Loading...</div>
     )
   }
 

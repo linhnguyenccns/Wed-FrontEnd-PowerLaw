@@ -103,7 +103,7 @@ const Login = () => {
         )
     } else {
         body = (
-            <div>Loading...</div>
+            <div className='loading'>Loading...</div>
         )
     }
 
