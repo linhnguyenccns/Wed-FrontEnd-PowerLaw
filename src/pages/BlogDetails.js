@@ -5,6 +5,7 @@ import {apiUrl} from '../contexts/constants';
 
 function BlogDetails() {
   const [Loading, setLoading] = useState(false)
+  const [Loading2, setLoading2] = useState(false)
   useEffect(() => { window.scrollTo(0, 0); }, []);
   
   const [Icon, setIcon] = useState('')
@@ -27,6 +28,7 @@ function BlogDetails() {
           setIcon(result.data.Icon)
           setTitle1(result.data.Title1)
           setContent(result.data.Content)
+          setLoading(true)
         }
       })
       .catch(error => console.log('error', error));
@@ -44,14 +46,14 @@ function BlogDetails() {
       .then(result => {
         if (result.success) {
           setinfor(result.data)
-          setLoading(true)
+          setLoading2(true)
         }
       })
       .catch(error => console.log('error', error));
   }, [])
 
   let body
-  if (Loading) {
+  if (Loading && Loading2) {
     body = (
       <>
         <div className='Service-Total'>

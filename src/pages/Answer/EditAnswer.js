@@ -11,6 +11,7 @@ function EditAnswer() {
 
   let navigate = useNavigate();
   const [Loading, setLoading] = useState(false)
+  const [Loading2, setLoading2] = useState(false)
   //=======================
   const [value, setvalue] = useState('')
   const [Title, setTitle] = useState('')
@@ -64,6 +65,7 @@ function EditAnswer() {
         if (result.success) {
           setvalue(result.data.Content)
           setTitle(result.data.Title)
+          setLoading2(true)
         }
       })
       .catch(error => console.log('error', error));
@@ -100,7 +102,7 @@ function EditAnswer() {
 
   //HTML
   let Body
-  if (Loading) {
+  if (Loading && Loading2) {
     Body = (
       <>
         <h4 className='add-page-title'>Edit dịch vụ</h4>

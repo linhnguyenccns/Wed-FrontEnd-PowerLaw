@@ -10,6 +10,7 @@ function EditAbout() {
 
   let navigate = useNavigate();
   const [Loading, setLoading] = useState(false)
+  const [Loading2, setLoading2] = useState(false)
   //=======================
   const [value, setvalue] = useState('')
   const [Icon, setIcon] = useState('')
@@ -68,6 +69,7 @@ function EditAbout() {
           setIcon(result.data.Icon)
           setTitle1(result.data.Title1)
           setTitle2(result.data.Title2)
+          setLoading2(true)
         }
       })
       .catch(error => console.log('error', error));
@@ -113,7 +115,7 @@ function EditAbout() {
 
   //HTML
   let Body
-  if (Loading) {
+  if (Loading && Loading2) {
     Body = (
       <>
         <h4 className='add-page-title'>Edit Giới Thiệu</h4>

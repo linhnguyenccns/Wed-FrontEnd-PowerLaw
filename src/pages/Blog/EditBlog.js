@@ -10,6 +10,7 @@ import {apiUrl} from '../../contexts/constants';
 function EditBlog() {
   let navigate = useNavigate();
   const [Loading, setLoading] = useState(false)
+  const [Loading2, setLoading2] = useState(false)
   //=======================
   const [value, setvalue] = useState('')
   const [Icon, setIcon] = useState('')
@@ -68,6 +69,7 @@ function EditBlog() {
           setIcon(result.data.Icon)
           setTitle1(result.data.Title1)
           setTitle2(result.data.Title2)
+          setLoading2(true)
         }
       })
       .catch(error => console.log('error', error));
@@ -112,7 +114,7 @@ function EditBlog() {
   }
   //HTML
   let Body
-  if (Loading) {
+  if (Loading && Loading2) {
     Body = (
       <>
         <h4 className='add-page-title'>Edit Blog</h4>
