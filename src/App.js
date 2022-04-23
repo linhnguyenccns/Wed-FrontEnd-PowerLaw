@@ -25,6 +25,8 @@ import ViewEmail from './pages/email/ViewEmail';
 import ViewBlog from './pages/Blog/ViewBlog';
 import ViewAnswer from './pages/Answer/ViewAnswer';
 import ViewNof from './pages/Nof/ViewNof';
+import EditEmail from './pages/email/EditEmail';
+import EditTop from './pages/Top/EditTop';
 
 function App() {
   
@@ -58,6 +60,9 @@ function App() {
       <Route path="/view-blog" element={<ViewBlog/>} />
       <Route path="/view-que" element={<ViewAnswer/>} />
       <Route path="/view-nof" element={<ViewNof/>} />
+
+      <Route path="/email-edit/:id" element={<EditEmail/>} />
+      <Route path="/top-edit/:id" element={<EditTop/>} />
     </Routes>
   );
 }

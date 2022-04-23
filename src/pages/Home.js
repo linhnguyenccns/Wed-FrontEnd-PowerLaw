@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Home.css'
-import ImgHome from '../img/img_home.jpg'
 import { Accordion } from 'react-bootstrap';
 import { useNavigate } from "react-router-dom"
 import parse from 'html-react-parser'
@@ -19,6 +18,8 @@ function Home() {
     const [Loading4, setLoading4] = useState(false)
     const [Loading5, setLoading5] = useState(false)
     const [Loading6, setLoading6] = useState(false)
+    const [Loading7, setLoading7] = useState(false)
+    const [Loading8, setLoading8] = useState(false)
 
     let ref = useRef()
     let refs = useRef()
@@ -37,7 +38,8 @@ function Home() {
     const [blog, setblog] = useState([])
     const [question, setquestion] = useState([])
     const [nof, setnof] = useState([])
-
+    const [email, setemail] = useState('')
+    const [Top, setTop] = useState([])
     //===============================================
     //Infor
     useEffect(() => {
@@ -143,6 +145,43 @@ function Home() {
             })
             .catch(error => console.log('error', error));
     }, [])
+    //Email
+    useEffect(() => {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch(apiUrl + "/email", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    setemail(result.data[0].Content)
+                    setLoading7(true)
+                }
+            })
+            .catch(error => console.log('error', error));
+    }, [])
+
+    //Top
+    useEffect(() => {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch(apiUrl + "/top", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    setTop(result.data)
+                    setLoading8(true)
+                }
+            })
+            .catch(error => console.log('error', error));
+    }, [])
+
+
 
     //Click++++++++++++++++++++++++++++++++++++++++++
     //Click Service
@@ -174,7 +213,7 @@ function Home() {
     }
 
     let body
-    if (Loading && Loading2 && Loading3 && Loading4 && Loading5 && Loading6) {
+    if (Loading && Loading2 && Loading3 && Loading4 && Loading5 && Loading6 && Loading7 && Loading8) {
         //Body 2
         const listService = service.map(data => (
             <div key={data._id} className='Home-Body-card-2'>
@@ -277,10 +316,10 @@ function Home() {
                 {/* Home */}
 
                 {/* Body 1 */}
-                <div class="body1-container">
-                    <img className='body1-img' src={ImgHome} alt='' />
-                    <div class="centered">
-                        
+                <div className="body1-container">
+                    <img className='body1-img' src={`https://drive.google.com/uc?export=view&id=${Top[0].Icon}`} alt='' />
+                    <div className="centered">
+                        {parse(Top[0].Content)}
                     </div>
                 </div>
 
@@ -347,9 +386,9 @@ function Home() {
                     <div className='Home-body__5-Main'>
                         <div className='Home-body__5-Main-left'>
                             <h2 className='Home-body__5-Title_Chi'>BIỂU PHÍ TƯ VẤN PHÁP LUẬT QUA EMAIL</h2>
-                            <p className='Home-body__5-Title_Content'>1. Tư vấn trực tuyến qua email: Hồi đáp của Luật sư sẽ được thể hiện bằng văn bản và gửi lại qua email của khách hàng cung cấp. Phí dịch vụ: 300.000 VNĐ/Email.</p>
-                            <p className='Home-body__5-Title_Content'> 2. Tư vấn bằng văn bản có ký đóng dấu qua Email: Hồi đáp của Luật sư sẽ được thể hiện bằng văn bản, được Luật sư ký và đóng dấu công ty vào văn bản tư vấn. Văn bản tư vấn sẽ được gửi dưới dạng bản Scan và gửi lại qua Email. Phí dịch vụ: 500.000 VNĐ/văn bản.</p>
-                            <p className='Home-body__5-Title_Content'>3. Tư vấn bằng văn bản có ký đóng dấu gửi qua đường bưu điện: Hồi đáp của Luật sư sẽ được thể hiện bằng văn bản, được Luật sư ký và đóng dấu công ty vào văn bản tư vấn. Văn bản tư vấn sẽ được gửi dưới dạng văn bản qua đường bưu điện theo địa chỉ khách hàng cung cấp. Phí dịch vụ: 1.000.000 VNĐ/văn bản.</p>
+                            <div className='Home-body__5-Title_Content'>
+                                {parse(email)}
+                            </div>
                         </div>
                         <div className='Home-body__5-Main-right'>
                             <h2 className='Home-body__5-Title_Chi'>ĐẶT CÂU HỎI CHO CHÚNG TÔI</h2>

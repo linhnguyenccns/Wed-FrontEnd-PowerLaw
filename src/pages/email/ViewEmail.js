@@ -86,6 +86,13 @@ function ViewEmail() {
             .catch(error => console.log('error', error));
     }, [])
     //=====================================
+    //Edit Email
+    const EditEmail = (data) => {
+        return (e) => {
+            navigate('/email-edit/' + data._id)
+        }
+    }
+    //=====================================
     const viewInfor = () => {
         navigate('/admin')
     }
@@ -118,7 +125,7 @@ function ViewEmail() {
             <tr key={data._id}>
                 <td>{parse(data.Content)}</td>
                 <td>
-                    <button className='Admin-btn-edit'>Edit</button>
+                    <button className='Admin-btn-edit' onClick={EditEmail(data)}>Edit</button>
                 </td>
             </tr>
         ))

@@ -35,7 +35,7 @@ function ViewTop() {
           .then(response => response.json())
           .then(data => {
             if (data.success) {
-              
+
             } else {
               navigate('/login')
             }
@@ -68,6 +68,13 @@ function ViewTop() {
   const logout = () => {
     document.cookie = "accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     window.location.reload();
+  }
+  //=====================================
+  //Edit top
+  const TopEdit = (data) => {
+    return (e) => {
+      navigate('/top-edit/' + data._id)
+    }
   }
   //=====================================
   useEffect(() => {
@@ -120,7 +127,7 @@ function ViewTop() {
         <td><img className='Admin-table-Logo-img' src={`https://drive.google.com/uc?export=view&id=${data.Icon}`} alt=''></img></td>
         <td>{parse(data.Content)}</td>
         <td>
-          <button className='Admin-btn-edit'>Edit</button>
+          <button className='Admin-btn-edit' onClick={TopEdit(data)}>Edit</button>
         </td>
       </tr>
     ))
