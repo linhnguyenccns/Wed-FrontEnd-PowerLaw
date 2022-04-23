@@ -84,7 +84,7 @@ function ViewBlog() {
                 }
             })
             .catch(error => console.log('error', error));
-    }, [])
+    }, [ChangeTable])
     //=====================================
     //Add blog
     const AddBlog = () => {

@@ -100,11 +100,11 @@ function AddAbout() {
                     <div className='add-page-input'>
                         <input type='text' onChange={e => setIcon(e.target.value)} size='50'></input>
                     </div>
-                    <label>Tên</label>
+                    <label>Tên(Tối Đa 50 chữ)</label>
                     <div className='add-page-input'>
                         <input type='text' onChange={e => setTitle1(e.target.value)} size='50' maxLength='50'></input>
                     </div>
-                    <label>Chức vụ</label>
+                    <label>Chức vụ(Tối Đa 50 chữ)</label>
                     <div className='add-page-input'>
                         <input type='text' onChange={e => setTitle2(e.target.value)} size='50' maxLength='50'></input>
                     </div>

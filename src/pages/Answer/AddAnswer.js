@@ -90,7 +90,7 @@ function AddAnswer() {
       <>
         <h4 className='add-page-title'>Thêm Câu Trả Lời</h4>
         <div className='add-page'>
-          <label>Tiêu Đề</label>
+          <label>Tiêu Đề(Tối Đa 150 chữ)</label>
           <div className='add-page-input'>
             <input type='text' onChange={e => setTitle(e.target.value)} maxLength='150' size='200'></input>
           </div>

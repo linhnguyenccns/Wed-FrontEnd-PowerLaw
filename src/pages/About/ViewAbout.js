@@ -85,7 +85,7 @@ function ViewAbout() {
                 }
             })
             .catch(error => console.log('error', error));
-    }, [])
+    }, [ChangeTable])
     //=====================================
     //Add about
     const AddAbout = () => {

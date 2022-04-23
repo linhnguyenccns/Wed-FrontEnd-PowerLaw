@@ -97,11 +97,11 @@ function AddService() {
         <div className='add-page'>
           <label>Icon</label>
           <div className='add-page-input'>
-            <input type='text' onChange={e => setIcon(e.target.value)}></input>
+            <input type='text' onChange={e => setIcon(e.target.value)} size='200'></input>
           </div>
-          <label>Tiêu Đề</label>
+          <label>Tiêu Đề(Tối Đa 50 chữ)</label>
           <div className='add-page-input'>
-            <input type='text' onChange={e => setTitle(e.target.value)}></input>
+            <input type='text' onChange={e => setTitle(e.target.value)} size='200' maxLength='50'></input>
           </div>
           <div className='Text-big'>
             <CKEditor

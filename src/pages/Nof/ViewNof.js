@@ -84,7 +84,7 @@ function ViewNof() {
                 }
             })
             .catch(error => console.log('error', error));
-    }, [])
+    }, [ChangeTable])
     //=====================================
     //add Nof
     const AddNof = () => {
@@ -110,7 +110,7 @@ function ViewNof() {
                 redirect: 'follow'
             };
 
-            fetch(apiUrl + "nof/" + data._id, requestOptions)
+            fetch(apiUrl + "/nof/" + data._id, requestOptions)
                 .then(response => response.json())
                 .then(result => {
                     if (result.success) {

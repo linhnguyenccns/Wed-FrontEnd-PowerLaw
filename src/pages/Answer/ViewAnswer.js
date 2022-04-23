@@ -85,7 +85,7 @@ function ViewAnswer() {
                 }
             })
             .catch(error => console.log('error', error));
-    }, [])
+    }, [ChangeTable])
     //=====================================
    //add-Answer"
    const AddAnswer = () => {

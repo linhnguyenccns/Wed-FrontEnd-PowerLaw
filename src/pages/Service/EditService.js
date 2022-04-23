@@ -118,9 +118,9 @@ function EditService() {
           <div className='add-page-input'>
             <input type='text' onChange={e => setIcon(e.target.value)} value={Icon} size='200'></input>
           </div>
-          <label>Tiêu Đề</label>
+          <label>Tiêu Đề(Tối Đa 50 chữ)</label>
           <div className='add-page-input'>
-            <input type='text' onChange={e => setTitle(e.target.value)} value={Title} size='200'></input>
+            <input type='text' onChange={e => setTitle(e.target.value)} value={Title} size='200' maxLength='50'></input>
           </div>
           <div className='Text-big'>
             <CKEditor

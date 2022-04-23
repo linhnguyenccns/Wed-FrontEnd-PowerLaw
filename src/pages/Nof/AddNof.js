@@ -101,11 +101,11 @@ function AddNof() {
           <div className='add-page-input'>
             <input type='text' onChange={e => setIcon(e.target.value)} size='50'></input>
           </div>
-          <label>Tiêu đề</label>
+          <label>Tiêu đề(Tối Đa 50 chữ)</label>
           <div className='add-page-input'>
             <input type='text' onChange={e => setTitle1(e.target.value)} size='50' maxLength='50'></input>
           </div>
-          <label>Môt tả ngắn</label>
+          <label>Môt tả ngắn(Tối Đa 150 chữ)</label>
           <div className='add-page-input'>
             <textarea type='text' className='motangan' onChange={e => setTitle2(e.target.value)} maxLength='160'></textarea>
           </div>
