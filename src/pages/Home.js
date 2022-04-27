@@ -41,6 +41,12 @@ function Home() {
     const [email, setemail] = useState('')
     const [Top, setTop] = useState([])
     //===============================================
+    const [Name, setName] = useState('')
+    const [EmailNhan, setEmailNhan] = useState('')
+    const [PhoneNumber, setPhoneNumber] = useState('')
+    const [Title, setTitle] = useState('')
+    const [ContentEmail, setContentEmail] = useState('')
+    //===============================================
     //Infor
     useEffect(() => {
         var requestOptions = {
@@ -181,7 +187,41 @@ function Home() {
             .catch(error => console.log('error', error));
     }, [])
 
+    //ClickSendEmail
+    const sendEmail = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("Name", Name);
+        urlencoded.append("emailNhan", EmailNhan);
+        urlencoded.append("PhoneNumber", PhoneNumber);
+        urlencoded.append("Title", Title);
+        urlencoded.append("Content", ContentEmail);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+
+        fetch(apiUrl + "/send-email", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    alert(result.message)
+                    setName('')
+                    setEmailNhan('')
+                    setPhoneNumber('')
+                    setTitle('')
+                    setContentEmail('')
+                } else {
+                    alert(result.message)
+                }
+            })
+            .catch(error => console.log('error', error));
+    }
 
     //Click++++++++++++++++++++++++++++++++++++++++++
     //Click Service
@@ -395,22 +435,22 @@ function Home() {
                             <div className='Home-body__5-Main_font'>
                                 <div className='Home-body__5-Main_font-Main'>
                                     <label className='Home-body__5-font-lable'>Họ và Tên</label>
-                                    <input className='Home-body__5-Main_font-input' type='text'></input>
+                                    <input className='Home-body__5-Main_font-input' type='text' onChange={e => setName(e.target.value)} value={Name}></input>
                                     <div className='Home-body__5-Main_font-Main2'>
                                         <div className='Home-body__5-Main_font-Main2_chi'>
-                                            <label className='Home-body__5-font-lable'>Email để nhận tư vấn</label>
+                                            <label className='Home-body__5-font-lable' onChange={e => setEmailNhan(e.target.value)} value={EmailNhan}>Email để nhận tư vấn</label>
                                             <input className='Home-body__5-Main_font-input' type='text'></input>
                                         </div>
                                         <div className='Home-body__5-Main_font-Main2_chi'>
-                                            <label className='Home-body__5-font-lable'>Số điện thoại</label>
+                                            <label className='Home-body__5-font-lable' onChange={e => setPhoneNumber(e.target.value)} value={PhoneNumber}>Số điện thoại</label>
                                             <input className='Home-body__5-Main_font-input' type='tel'></input>
                                         </div>
                                     </div>
-                                    <label className='Home-body__5-font-lable'>Tiêu đền câu hỏi</label>
+                                    <label className='Home-body__5-font-lable' onChange={e => setTitle(e.target.value)} value={Title}>Tiêu đền câu hỏi</label>
                                     <input className='Home-body__5-Main_font-input' type='text'></input>
-                                    <label className='Home-body__5-font-lable'>Nội dung tư vấn</label>
+                                    <label className='Home-body__5-font-lable' onChange={e => setContentEmail(e.target.value)} value={ContentEmail}>Nội dung tư vấn</label>
                                     <textarea className='Home-body__5-Main_font-textarea' type='text'></textarea>
-                                    <button className='Home-body__5-font_btn'>Gửi Email</button>
+                                    <button className='Home-body__5-font_btn' onClick={sendEmail}>Gửi Email</button>
                                 </div>
                             </div>
                         </div>
